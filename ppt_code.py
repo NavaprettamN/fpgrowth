@@ -16,6 +16,7 @@ dataset = [
 # Convert the dataset into a transaction format
 te = TransactionEncoder()
 te_ary = te.fit(dataset).transform(dataset)
+print(te_ary)
 df = pd.DataFrame(te_ary, columns=te.columns_)
 # Run FP-Growth algorithm
 frequent_itemsets = fpgrowth(df, min_support=0.5, use_colnames=True)
